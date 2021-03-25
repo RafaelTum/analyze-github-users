@@ -1,0 +1,30 @@
+spring:
+  profiles:
+    active: dev
+
+gitHub:
+  users:
+    base-url: https://api.github.com/users
+    user-path: /{user}
+    filter:
+      publicReposCount: 10
+      followersCount: 10
+      createdDate: "01/01/05"
+
+app:
+  data-fetch:
+    fixed-delay: 3600000
+    page-size: 6
+    start: 0
+    count: 5
+
+server:
+  port : 8090
+
+springdoc:
+  swagger-ui:
+    path: /docs/swagger-ui
+  api-docs:
+    path: /docs/api-docs
+  paths-to-match: /api/v1/**
+
