@@ -17,6 +17,7 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ActiveProfiles;
 import reactor.core.publisher.Flux;
 import reactor.test.StepVerifier;
 
@@ -26,6 +27,7 @@ import java.util.List;
 import static org.mockito.BDDMockito.given;
 
 @SpringBootTest
+@ActiveProfiles(profiles = "test")
 public class GithubUserServiceImplTest {
 
     @MockBean
