@@ -52,7 +52,6 @@ public class DataGrabbingScheduler {
 
     @Scheduled(fixedDelayString = "${app.data-fetch.fixed-delay}")
     public void run() {
-
         Flux.range(startPage, pageCount)
                 .delayElements(Duration.ofSeconds(5))
                 .flatMap(integer -> this.fetchData(integer * pageSize, pageSize))
