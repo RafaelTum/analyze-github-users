@@ -15,6 +15,7 @@ pipelines:
             caches:
               - maven
             script:
+              - export TESTCONTAINERS_RYUK_DISABLED=true
               - mvn clean install
             after-script:
               # Collect checkstyle results, if any, and convert to Bitbucket Code Insights.
@@ -25,3 +26,8 @@ pipelines:
               # Run a security scan for sensitive data.
               # See more security tools at https://bitbucket.org/product/features/pipelines/integrations?&category=security
               - pipe: atlassian/git-secrets-scan:0.4.3
+
+definitions:
+    services:
+      docker:
+        memory: 2048
