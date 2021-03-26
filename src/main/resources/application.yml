@@ -18,9 +18,6 @@ app:
     start: 0
     count: 5
 
-server:
-  port : 8090
-
 springdoc:
   swagger-ui:
     path: /docs/swagger-ui
