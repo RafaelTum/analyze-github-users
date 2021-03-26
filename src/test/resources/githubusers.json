@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "login": "brynary",
+    "url": "https://api.github.com/users/brynary",
+    "name": "Bryan Helmkamp",
+    "company": "Code Climate",
+    "location": "New York",
+    "publicRepos": 165,
+    "followers": 636,
+    "createdAt": "2008-01-13T10:19:47"
+  },
+  {
+    "id": 2,
+    "login": "wycats",
+    "url": "https://api.github.com/users/wycats",
+    "name": "Yehuda Katz",
+    "company": "Tilde, Inc.",
+    "location": "San Francisco",
+    "publicRepos": 238,
+    "followers": 9756,
+    "createdAt": "2008-01-12T05:38:33"
+  },
+  {
+    "id": 3,
+    "login": "vanpelt",
+    "url": "https://api.github.com/users/vanpelt",
+    "name": "Chris Van Pelt",
+    "company": "Tilde, Inc.",
+    "location": "San Francisco",
+    "publicRepos": 56,
+    "followers": 148,
+    "createdAt": "2008-01-13T05:57:18"
+  },
+  {
+    "id": 4,
+    "login": "defunkt",
+    "url": "https://api.github.com/users/defunkt",
+    "name": "Chris Wanstrath",
+    "company": "@hashicorp ",
+    "location": "Los Angeles, CA",
+    "publicRepos": 107,
+    "followers": 21158,
+    "createdAt": "2007-10-20T05:24:19"
+  },
+  {
+    "id": 5,
+    "login": "evanphx",
+    "url": "https://api.github.com/users/evanphx",
+    "name": "Evan Phoenix",
+    "company": "@hashicorp ",
+    "location": "Los Angeles, CA",
+    "publicRepos": 157,
+    "followers": 1373,
+    "createdAt": "2008-01-12T16:46:24"
+  },
+  {
+    "id": 6,
+    "login": "ivey",
+    "url": "https://api.github.com/users/ivey",
+    "name": "Michael D. Ivey",
+    "company": "@RiotGames ",
+    "location": "New York",
+    "publicRepos": 88,
+    "followers": 119,
+    "createdAt": "2008-01-12T15:15:00"
+  },
+  {
+    "id": 7,
+    "login": "ezmobius",
+    "url": "https://api.github.com/users/ezmobius",
+    "name": "Ezra Zygmuntowicz",
+    "company": "Code Climate",
+    "location": "New York",
+    "publicRepos": 22,
+    "followers": 508,
+    "createdAt": "2008-01-12T07:51:46"
+  }
+]
