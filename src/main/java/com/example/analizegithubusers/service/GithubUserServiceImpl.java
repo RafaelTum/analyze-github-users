@@ -36,7 +36,7 @@ public class GithubUserServiceImpl implements GithubUserService {
     @Override
     public Flux<GithubUserResponseDto> getAllByPagination(long page, long size) {
         long elementsToBeSkipped = (page - 1) * size;
-        if (page < 0 || size < 0) {
+        if (page <= 0 || size < 0) {
             log.error("wrong values passed, page {}, size {}", page, size);
             return Flux.error(() -> new IllegalArgumentException("wrong values passed for pagination"));
         }
