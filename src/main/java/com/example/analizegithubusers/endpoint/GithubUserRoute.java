@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springdoc.core.annotations.RouterOperation;
 import org.springdoc.core.annotations.RouterOperations;
 import org.springframework.context.annotation.Bean;
@@ -23,6 +24,10 @@ import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
 import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
 
+/**
+ * Functional router for Github users endpoint.
+ * Handles all incoming request for /api/v1/github-users and delegates to handler {@link GithubUserHandler}
+ */
 @Configuration
 public class GithubUserRoute {
 
@@ -33,16 +38,20 @@ public class GithubUserRoute {
                                     @Parameter(name = "page", in = ParameterIn.QUERY, example = "5", content = @Content(schema = @Schema(implementation = String.class)), description = "the number of page"),
                                     @Parameter(name = "size", in = ParameterIn.QUERY, example = "10", content = @Content(schema = @Schema(implementation = String.class)), description = "the size of elements in one page")
                             },
+                            security = @SecurityRequirement(name = "bearerAuth"),
                             responses = @ApiResponse(responseCode = "200", content = @Content(array = @ArraySchema(schema = @Schema(implementation = GithubUserResponseDto.class)))))),
             @RouterOperation(path = "/api/v1/github-users/{login}", method = RequestMethod.GET,
                     operation = @Operation(operationId = "matchingGithubUsers",
                             parameters = @Parameter(name = "login", in = ParameterIn.PATH, description = "login or partial login to be searched"), tags = "githubUser", summary = "Search users by username that partially matching",
+                            security = @SecurityRequirement(name = "bearerAuth"),
                             responses = @ApiResponse(responseCode = "200", content = @Content(array = @ArraySchema(schema = @Schema(implementation = GithubUserResponseDto.class)))))),
             @RouterOperation(path = "/api/v1/github-users/group/location", method = RequestMethod.GET,
                     operation = @Operation(operationId = "githubUsersGroupedByLocation", tags = "githubUser", summary = "Find and group users by location",
+                            security = @SecurityRequirement(name = "bearerAuth"),
                             responses = @ApiResponse(responseCode = "200", content = @Content(array = @ArraySchema(schema = @Schema(implementation = AggregationResultDto.class)))))),
             @RouterOperation(path = "/api/v1/github-users/group/company", method = RequestMethod.GET,
                     operation = @Operation(operationId = "githubUsersGroupedByCompany", tags = "githubUser", summary = "Find and group users by company",
+                            security = @SecurityRequirement(name = "bearerAuth"),
                             responses = @ApiResponse(responseCode = "200", content = @Content(array = @ArraySchema(schema = @Schema(implementation = AggregationResultDto.class))))))
     })
 

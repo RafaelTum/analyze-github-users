@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @NoArgsConstructor
-@Document(collection = "users")
+@Document(collection = "github_users")
 public class GithubUser {
 
     @Id

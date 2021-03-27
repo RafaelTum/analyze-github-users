@@ -8,7 +8,7 @@ gitHub:
     user-path: /{user}
     filter:
       publicReposCount: 10
-      followersCount: 10
+      followersCount: 5
       createdDate: "01/01/05"
 
 app:
@@ -25,3 +25,9 @@ springdoc:
     path: /docs/api-docs
   paths-to-match: /api/v1/**
 
+sec:
+  jwt:
+    signing-key: strongkey
+    claim-name: scopes
+    expiration: 86400000
+    token-prefix: Bearer

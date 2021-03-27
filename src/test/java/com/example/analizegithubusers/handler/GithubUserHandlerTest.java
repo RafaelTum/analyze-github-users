@@ -13,14 +13,12 @@ import ma.glasnost.orika.MapperFacade;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.ActiveProfiles;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import java.io.File;
@@ -29,8 +27,6 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @AutoConfigureWebTestClient
-@RunWith(SpringRunner.class)
-@ActiveProfiles(profiles = "test")
 @ContextConfiguration(initializers = AbstractIntegrationTest.Initializer.class)
 class GithubUserHandlerTest extends AbstractIntegrationTest {
 
@@ -58,6 +54,7 @@ class GithubUserHandlerTest extends AbstractIntegrationTest {
         githubUserRepository.deleteAll();
     }
 
+    @WithMockUser
     @Test
     void getAll() {
         githubUserRepository.saveAll(githubUserList).subscribe();
@@ -73,8 +70,9 @@ class GithubUserHandlerTest extends AbstractIntegrationTest {
                 });
     }
 
+    @WithMockUser
     @Test
-    void getAllWithPagination() {
+    void getAllWithWrongPaginationWillReturnErrorStatus() {
         githubUserRepository.saveAll(githubUserList).subscribe();
         webTestClient.get()
                 .uri(uriBuilder ->
@@ -89,6 +87,7 @@ class GithubUserHandlerTest extends AbstractIntegrationTest {
                 .expectBodyList(GithubUserResponseDto.class);
     }
 
+    @WithMockUser
     @Test
     void findByUsernamePartiallyMatching() {
         githubUserRepository.saveAll(githubUserList).subscribe();
@@ -104,6 +103,7 @@ class GithubUserHandlerTest extends AbstractIntegrationTest {
                 });
     }
 
+    @WithMockUser
     @Test
     void findGroupedByLocation() {
         githubUserRepository.saveAll(githubUserList).subscribe();
@@ -118,6 +118,7 @@ class GithubUserHandlerTest extends AbstractIntegrationTest {
                 });
     }
 
+    @WithMockUser
     @Test
     void findGroupedByCompany() {
         githubUserRepository.saveAll(githubUserList).subscribe();

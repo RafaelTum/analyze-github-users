@@ -115,8 +115,8 @@ public class GithubUserServiceImplTest {
         long page = 1;
         long pageSize = -100;
 
-        StepVerifier.create(service.getAllByPagination(page, pageSize).log())
-                .expectError()
+        StepVerifier.create(service.getAllByPagination(page, pageSize))
+                .expectError(IllegalArgumentException.class)
                 .verify();
 
         Mockito.verify(repository, Mockito.times(0)).findAll();

@@ -1,6 +1,6 @@
 package com.example.analizegithubusers.datagrabbing;
 
-import com.example.analizegithubusers.config.properties.UsersConfigProperties;
+import com.example.analizegithubusers.config.properties.GithubUsersConfigProperties;
 import com.example.analizegithubusers.datagrabbing.dto.GithubUserDto;
 import com.example.analizegithubusers.dto.GithubUserRequestDto;
 import lombok.extern.slf4j.Slf4j;
@@ -25,11 +25,11 @@ public class GithubUsersGrabber {
     private final String path;
 
     public GithubUsersGrabber(WebClient.Builder webClientBuilder,
-                              UsersConfigProperties usersConfigProperties) {
+                              GithubUsersConfigProperties githubUsersConfigProperties) {
         webClient = webClientBuilder
-                .baseUrl(usersConfigProperties.getBaseUrl())
+                .baseUrl(githubUsersConfigProperties.getBaseUrl())
                 .build();
-        this.path = usersConfigProperties.getUserPath();
+        this.path = githubUsersConfigProperties.getUserPath();
     }
 
     /**
@@ -65,7 +65,7 @@ public class GithubUsersGrabber {
      * @return {@link Flux<GithubUserRequestDto>}
      */
     public Mono<GithubUserDto> retrieveGithubUsersWithDetails(String login) {
-        log.info("Retrieving user details");
+        log.info("Retrieving user details by path /{}", login);
         return webClient.get()
                 .uri(path, login)
                 .accept(MediaType.APPLICATION_JSON)

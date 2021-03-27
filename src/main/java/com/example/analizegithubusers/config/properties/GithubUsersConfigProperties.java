@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @Component
 @ConfigurationProperties(prefix = "github.users")
 @Validated
-public class UsersConfigProperties {
+public class GithubUsersConfigProperties {
     @NotEmpty
     private String baseUrl;
     @NotEmpty

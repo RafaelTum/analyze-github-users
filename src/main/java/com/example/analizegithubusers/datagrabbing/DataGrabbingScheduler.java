@@ -1,6 +1,6 @@
 package com.example.analizegithubusers.datagrabbing;
 
-import com.example.analizegithubusers.config.properties.UsersConfigProperties;
+import com.example.analizegithubusers.config.properties.GithubUsersConfigProperties;
 import com.example.analizegithubusers.datagrabbing.dto.GithubUserDto;
 import com.example.analizegithubusers.dto.GithubUserRequestDto;
 import com.example.analizegithubusers.service.GithubUserService;
@@ -29,7 +29,7 @@ public class DataGrabbingScheduler {
     private final GithubUsersGrabber githubUsersGrabber;
     private final GithubUserService githubUserService;
     private final MapperFacade mapperFacade;
-    private final UsersConfigProperties usersConfigProperties;
+    private final GithubUsersConfigProperties githubUsersConfigProperties;
     private final long pageSize;
     private final int startPage;
     private final int pageCount;
@@ -37,14 +37,14 @@ public class DataGrabbingScheduler {
     public DataGrabbingScheduler(GithubUsersGrabber githubUsersGrabber,
                                  GithubUserService githubUserService,
                                  MapperFacade mapperFacade,
-                                 UsersConfigProperties usersConfigProperties,
+                                 GithubUsersConfigProperties githubUsersConfigProperties,
                                  @Value("${app.data-fetch.page-size}") long pageSize,
                                  @Value("${app.data-fetch.start}")int startPage,
                                  @Value("${app.data-fetch.count}")int pageCount) {
         this.githubUsersGrabber = githubUsersGrabber;
         this.githubUserService = githubUserService;
         this.mapperFacade = mapperFacade;
-        this.usersConfigProperties = usersConfigProperties;
+        this.githubUsersConfigProperties = githubUsersConfigProperties;
         this.pageSize = pageSize;
         this.startPage = startPage;
         this.pageCount = pageCount;
@@ -85,8 +85,8 @@ public class DataGrabbingScheduler {
      * @return boolean
      */
     private boolean passFilter(GithubUserDto userDto) {
-        return userDto.getPublicRepos() >= usersConfigProperties.getFilter().getPublicReposCount()
-                && userDto.getFollowers() >= usersConfigProperties.getFilter().getFollowersCount()
-                && DateParser.parse(userDto.getCreatedAt()).isAfter(usersConfigProperties.getFilter().getCreatedDate());
+        return userDto.getPublicRepos() >= githubUsersConfigProperties.getFilter().getPublicReposCount()
+                && userDto.getFollowers() >= githubUsersConfigProperties.getFilter().getFollowersCount()
+                && DateParser.parse(userDto.getCreatedAt()).isAfter(githubUsersConfigProperties.getFilter().getCreatedDate());
     }
 }
