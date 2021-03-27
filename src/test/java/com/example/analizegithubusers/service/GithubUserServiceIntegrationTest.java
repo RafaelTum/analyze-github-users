@@ -31,7 +31,7 @@ class GithubUserServiceIntegrationTest extends AbstractIntegrationTest {
     @Autowired
     private MapperFacade mapperFacade;
     @MockBean
-    //added to escapeF scheduler initialization while context loading
+    //added to escape scheduler initialization while context loading
     private DataGrabbingScheduler dataGrabbingScheduler;
 
     private static List<GithubUser> githubUserList;
