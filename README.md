@@ -36,3 +36,8 @@ Execute the following command in the project root directory:
 ##  Docs 
 Docs are available by this url:
 `http://localhost:8090/docs/swagger-ui`
+
+# Note
+On start of the app an admin user is being created with credentials:
+"username": "admin",
+"password": "password"

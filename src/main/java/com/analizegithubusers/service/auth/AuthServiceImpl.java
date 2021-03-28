@@ -69,7 +69,7 @@ public class AuthServiceImpl implements AuthService {
     private User mapToUser(SignUpRequestDto dto) {
         User user = mapper.map(dto, User.class);
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
-        user.setRoles(Collections.singleton(new Role("USER", "Default role")));
+        user.setRoles(Collections.singleton(new Role("USER")));
         return user;
     }
 }
