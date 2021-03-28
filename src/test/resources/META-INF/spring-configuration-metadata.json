@@ -1,0 +1,56 @@
+{
+  "properties": [
+    {
+      "name": "gitHub.users.base-url",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "gitHub.users.user-path",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "gitHub.users.filter.publicReposCount",
+      "type": "java.lang.Long"
+    },
+    {
+      "name": "gitHub.users.filter.followersCount",
+      "type": "java.lang.Long"
+    },
+    {
+      "name": "gitHub.users.filter.createdDate",
+      "type": "java.time.LocalDate"
+    },
+    {
+      "name": "app.data-fetch.fixed-delay",
+      "type": "java.lang.Long"
+    },
+    {
+      "name": "app.data-fetch.page-size",
+      "type": "java.lang.Long"
+    },
+    {
+      "name": "app.data-fetch.start",
+      "type": "java.lang.Integer"
+    },
+    {
+      "name": "app.data-fetch.count",
+      "type": "java.lang.Integer"
+    },
+    {
+      "name": "sec.jwt.signing-key",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "sec.jwt.claim-name",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "sec.jwt.expiration",
+      "type": "java.lang.Long"
+    },
+    {
+      "name": "sec.jwt.claim-name",
+      "type": "java.lang.token-prefix"
+    }
+  ]
+}

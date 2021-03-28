@@ -10,7 +10,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.example</groupId>
+    <groupId>com.github.analizer</groupId>
     <artifactId>analize-github-users</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>analize-github-users</name>
